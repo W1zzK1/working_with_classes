@@ -1,12 +1,21 @@
+package model;
+
 import java.time.LocalDate;
-import java.util.Date;
-import java.util.Locale;
 
 public class Person {
-    private String firstName;
-    private String secondName;
-    private String lastName;
-    private LocalDate dateOfBirth;
+    public Integer id;
+    public String firstName;
+    public String secondName;
+    public String patternalName;
+    public LocalDate dateOfBirth;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
     public String getFirstName() {
         return firstName;
@@ -30,13 +39,13 @@ public class Person {
         else System.out.println("Не верно введено отчество");
     }
 
-    public String getLastName() {
-        return lastName;
+    public String getPatternalName() {
+        return patternalName;
     }
 
-    public void setLastName(String lastName) {
-        if (lastName.matches("[а-яА-Я,a-zA-Z]+")){
-            this.lastName = lastName;
+    public void setPatternalName(String patternalName) {
+        if (patternalName.matches("[а-яА-Я,a-zA-Z]+")){
+            this.patternalName = patternalName;
         }
         else System.out.println("Не верно введено фамилия");
     }
@@ -54,12 +63,22 @@ public class Person {
         this.dateOfBirth = dateOfBirth;
     }
 
+    public Person(String firstName, String secondName, String patternalName) {
+        this.firstName = firstName;
+        this.secondName = secondName;
+        this.patternalName = patternalName;
+    }
+
+    public Person() {
+    }
+
     @Override
     public String toString() {
         return "Person{" +
-                "firstName='" + firstName + '\'' +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
                 ", secondName='" + secondName + '\'' +
-                ", lastName='" + lastName + '\'' +
+                ", lastName='" + patternalName + '\'' +
                 ", dateOfBirth=" + dateOfBirth +
                 '}';
     }
