@@ -34,4 +34,15 @@ public class Controller {
             System.out.println(p);
         }
     }
+    public void findPersonWithId(){
+        System.out.print("Введите Id для поиска : ");
+        int idToFind = sc.nextInt();
+        Person[] allPeople = service.showPersons();
+        for (Person p : allPeople){
+            if (idToFind == p.id){
+                System.out.println(p);
+                break;
+            }
+        }
+    }
 }
