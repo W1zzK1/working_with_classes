@@ -10,7 +10,7 @@ public class Controller {
 
     PersonServiceImpl service = new PersonServiceImpl();
 
-    public void addPersonView(){
+    public void addPersonView() {
         for (int i = 0; i < 2; i++) {
             Person person = new Person();
             System.out.print("Введите имя : ");
@@ -28,21 +28,17 @@ public class Controller {
             service.createPerson(firstName, secondName, patternalName);
         }
     }
-    public void showPersons(){
+
+    public void showPersons() {
         Person[] allPeople = service.showPersons();
-        for (Person p : allPeople){
+        for (Person p : allPeople) {
             System.out.println(p);
         }
     }
+
     public void findPersonWithId(){
         System.out.print("Введите Id для поиска : ");
-        int idToFind = sc.nextInt();
-        Person[] allPeople = service.showPersons();
-        for (Person p : allPeople){
-            if (idToFind == p.id){
-                System.out.println(p);
-                break;
-            }
-        }
+        int idPersonToFind = sc.nextInt();
+        service.findPersonWithId(idPersonToFind);
     }
 }
