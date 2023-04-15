@@ -34,36 +34,49 @@ public class Controller {
         service.showPersons();
     }
 
-    public void findPersonWithId(){
+    public void findPersonWithId() {
         System.out.print("Введите Id для поиска : ");
         int idPersonToFind = sc.nextInt();
         service.findPersonWithId(idPersonToFind);
     }
-    public void deletePerson(){
+
+    public void deletePerson() {
         System.out.print("Введите Id для удаления : ");
         int id = sc.nextInt();
         service.deletePerson(id);
         service.showPersons();
     }
 
-    public void updatePerson(){
-        System.out.print("Введите id пользователя для обновления данных : ");
-        int id = sc.nextInt();
+    public void updatePerson() {
+        boolean correctId = false;
+        int id = 0;
+        while (!correctId) {
+            try {
+                System.out.print("Введите id пользователя для обновления данных : ");
+                id = Integer.valueOf(sc.nextLine());
+                correctId = true;
+            } catch (NumberFormatException e) {
+                System.out.println("Введен не верный Id");
+            }
+
+        }
 
         System.out.print("Введите новое имя : ");
         String newFirstname = sc.nextLine();
-        //newPerson.setFirstName(newFirstname);
 
         System.out.print("Введите новую фамилию : ");
         String newSecondName = sc.nextLine();
-        //newPerson.setSecondName(newSecondName);
 
         System.out.print("Введите новое отчество : ");
         String newPaternalName = sc.nextLine();
-        //newPerson.setPatternalName(newPaternalName);
 
         Person newPerson = new Person(newFirstname, newSecondName, newPaternalName);
-        service.updatePerson(id, newPerson);
-        service.findPersonWithId(id);
+        try {
+            service.updatePerson(id, newPerson);
+            service.findPersonWithId(id);
+        } catch (IndexOutOfBoundsException e) {
+            System.out.println("Такого Id не существует");
+            updatePerson();
+        }
     }
 }
