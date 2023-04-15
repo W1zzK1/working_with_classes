@@ -47,22 +47,22 @@ public class Controller {
     }
 
     public void updatePerson(){
-        Person newPerson = new Person();
         System.out.print("Введите id пользователя для обновления данных : ");
         int id = sc.nextInt();
 
-        System.out.print("Введите новое имя :");
+        System.out.print("Введите новое имя : ");
         String newFirstname = sc.nextLine();
-        newPerson.setFirstName(newFirstname);
+        //newPerson.setFirstName(newFirstname);
 
-        System.out.print("Введите новую фамилию :");
+        System.out.print("Введите новую фамилию : ");
         String newSecondName = sc.nextLine();
-        newPerson.setSecondName(newSecondName);
+        //newPerson.setSecondName(newSecondName);
 
-        System.out.print("Введите новое отчество :");
+        System.out.print("Введите новое отчество : ");
         String newPaternalName = sc.nextLine();
-        newPerson.setPatternalName(newPaternalName);
+        //newPerson.setPatternalName(newPaternalName);
 
+        Person newPerson = new Person(newFirstname, newSecondName, newPaternalName);
         service.updatePerson(id, newPerson);
         service.findPersonWithId(id);
     }
