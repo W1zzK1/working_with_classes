@@ -2,36 +2,32 @@ package storage;
 
 import model.Person;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public class PersonStorage {
-    private Person[] allPersons = new Person[10];
+    private List<Person> allPersons = new ArrayList<>();
     private int index = 0;
 
-    public Person addPerson(Person person) {
-        allPersons[index] = person;
-        person.setId(index);
+    public void addPerson(Person person) {
+        allPersons.add(person);
         index++;
-        return person;
     }
 
-    void deletePerson(Integer id) {
+    public void deletePerson(int id) {
+        allPersons.remove(id);
     }
 
-    public Person[] getAllPersons() {
-        return allPersons;
+    public List<Person> getAllPersons() {
+        return new ArrayList<>(allPersons);
     }
 
-    Person updateName(Integer id, String newName) {
-        return new Person();
+    public Person updatePerson(int id, Person person) {
+        return allPersons.set(id, person);
     }
 
-    public void findPersonWithId(Integer id) {
-        for (Person i : allPersons) {
-            if (Objects.equals(id, i.id)) {
-                System.out.println(i);
-                break;
-            }
-        }
+    public Person findPersonWithId(int id) {
+        return allPersons.get(id);
     }
 }

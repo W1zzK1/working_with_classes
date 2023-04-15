@@ -6,6 +6,10 @@ public class Main {
         controller.addPersonView();
         controller.showPersons();
 
-        controller.findPersonWithId();
+//        controller.findPersonWithId();
+//
+//        controller.deletePerson();
+
+        controller.updatePerson();
     }
 }

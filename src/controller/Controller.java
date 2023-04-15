@@ -1,6 +1,7 @@
 package controller;
 
 import model.Person;
+import service.PersonService;
 import service.PersonServiceImpl;
 
 import java.util.Scanner;
@@ -30,15 +31,39 @@ public class Controller {
     }
 
     public void showPersons() {
-        Person[] allPeople = service.showPersons();
-        for (Person p : allPeople) {
-            System.out.println(p);
-        }
+        service.showPersons();
     }
 
     public void findPersonWithId(){
         System.out.print("Введите Id для поиска : ");
         int idPersonToFind = sc.nextInt();
         service.findPersonWithId(idPersonToFind);
+    }
+    public void deletePerson(){
+        System.out.print("Введите Id для удаления : ");
+        int id = sc.nextInt();
+        service.deletePerson(id);
+        service.showPersons();
+    }
+
+    public void updatePerson(){
+        Person newPerson = new Person();
+        System.out.print("Введите id пользователя для обновления данных : ");
+        int id = sc.nextInt();
+
+        System.out.print("Введите новое имя :");
+        String newFirstname = sc.nextLine();
+        newPerson.setFirstName(newFirstname);
+
+        System.out.print("Введите новую фамилию :");
+        String newSecondName = sc.nextLine();
+        newPerson.setSecondName(newSecondName);
+
+        System.out.print("Введите новое отчество :");
+        String newPaternalName = sc.nextLine();
+        newPerson.setPatternalName(newPaternalName);
+
+        service.updatePerson(id, newPerson);
+        service.findPersonWithId(id);
     }
 }
