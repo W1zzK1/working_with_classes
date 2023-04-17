@@ -1,7 +1,9 @@
 package service;
 
+import model.Person;
+
 public interface PersonService {
-    void createPerson(String firstName, String secondName, String patternalName);
+    void createPerson(Person person);
 
     void showPersons();
 

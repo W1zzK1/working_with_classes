@@ -22,10 +22,10 @@ public class Person {
     }
 
     public void setFirstName(String firstName) {
-        if (firstName.matches("[а-яА-Я,a-zA-Z]+")){
-            this.firstName = firstName;
-        }
-        else System.out.println("Не верно введено имя");
+        this.firstName = firstName;
+//        if (firstName.matches("[а-яА-Я,a-zA-Z]+")){
+//        }
+//        else System.out.println("Не верно введено имя");
     }
 
     public String getSecondName() {
@@ -33,10 +33,10 @@ public class Person {
     }
 
     public void setSecondName(String secondName) {
-        if (secondName.matches("[а-яА-Я,a-zA-Z]+")){
-            this.secondName = secondName;
-        }
-        else System.out.println("Не верно введено отчество");
+        this.secondName = secondName;
+//        if (secondName.matches("[а-яА-Я,a-zA-Z]+")){
+//        }
+//        else System.out.println("Не верно введено отчество");
     }
 
     public String getPatternalName() {
@@ -44,10 +44,10 @@ public class Person {
     }
 
     public void setPatternalName(String patternalName) {
-        if (patternalName.matches("[а-яА-Я,a-zA-Z]+")){
-            this.patternalName = patternalName;
-        }
-        else System.out.println("Не верно введено фамилия");
+        this.patternalName = patternalName;
+//        if (patternalName.matches("[а-яА-Я,a-zA-Z]+")){
+//        }
+//        else System.out.println("Не верно введено фамилия");
     }
 
     public LocalDate getDateOfBirth() {
