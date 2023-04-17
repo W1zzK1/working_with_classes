@@ -11,6 +11,6 @@ public class Main {
 //
 //        controller.deletePerson();
 //
-//        controller.updatePerson();
+        controller.updatePerson();
     }
 }
