@@ -13,7 +13,8 @@ public class Controller {
     public void addPersonView() {
         boolean correctFlag = false;
         while (!correctFlag) {
-            try (Scanner sc = new Scanner(System.in)){
+            try {
+                Scanner sc = new Scanner(System.in);
                 service.createPerson(readData(sc));
                 correctFlag = true;
             } catch (IlligalDataException e) {
@@ -127,7 +128,8 @@ public class Controller {
     public void updatePerson() {
         boolean correctId = false;
         while (!correctId) {
-                try (Scanner sc = new Scanner(System.in)){
+                try {
+                    Scanner sc = new Scanner(System.in);
                     System.out.print("Введите id пользователя для обновления данных : ");
                     int id = Integer.valueOf(sc.nextLine());
                     service.updatePerson(id, readData(sc));

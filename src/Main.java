@@ -5,6 +5,7 @@ public class Main {
         Controller controller = new Controller();
 
         controller.addPersonView();
+        controller.addPersonView();
         controller.showPersons();
 
 //        controller.findPersonWithId();
